@@ -29,6 +29,11 @@
 ## Installation
 
 ```bash
+#Install database
+$ docker-compose up -d
+$ npx prisma migrate dev --name "users"
+
+#Install package
 $ npm install
 ```
 
