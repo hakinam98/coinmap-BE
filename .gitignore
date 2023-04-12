@@ -2,6 +2,7 @@
 /dist
 /node_modules
 /data
+.env
 # Logs
 logs
 *.log
@@ -10,7 +11,7 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-.env
+
 # OS
 .DS_Store
 
@@ -26,7 +27,6 @@ lerna-debug.log*
 *.launch
 .settings/
 *.sublime-workspace
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
