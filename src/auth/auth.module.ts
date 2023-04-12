@@ -7,7 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from 'src/users/users.module';
 import { JwtStrategy } from './jwt.strategy';
 
-export const jwtSecret = 'auth-secret-key';
+export const jwtSecret = 'my-secret-key';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ export const jwtSecret = 'auth-secret-key';
     PassportModule,
     JwtModule.register({
       secret: jwtSecret,
-      signOptions: { expiresIn: '4h' },
+      signOptions: { expiresIn: '8h' },
     }),
     UsersModule,
   ],

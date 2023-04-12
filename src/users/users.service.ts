@@ -27,10 +27,12 @@ export class UsersService {
 
     return this.prisma.users.create({ data: createUserDto });
   }
+
   async findAll() {
     const users = await this.prisma.users.findMany();
     return users;
   }
+
   findOne(id: number) {
     return this.prisma.users.findUnique({ where: { id } });
   }
@@ -41,6 +43,14 @@ export class UsersService {
         updateUserDto.password,
         roundsOfHashing,
       );
+    }
+    if (updateUserDto.email) {
+      const user = await this.prisma.users.findUnique({
+        where: { email: updateUserDto.email },
+      });
+      if (user) {
+        throw new NotAcceptableException('email existed!');
+      }
     }
     return this.prisma.users.update({ where: { id }, data: updateUserDto });
   }
